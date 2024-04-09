@@ -23,72 +23,159 @@
  * 
  */
 
+let items = [];
+let blocks = [];
+let mobs = [];
+let all = [];
 
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+// Sorts all data in alphabetical order
+function sortAllData() {
+    all.sort((a, b) => a.name.localeCompare(b.name));
+}
 
-// This is an array of strings (TV show titles)
-let titles = [
-    "Fresh Prince of Bel Air",
-    "Curb Your Enthusiasm",
-    "East Los High"
-];
-// Your final submission should have much more data than this, and 
-// you should use more than just an array of strings to store it all.
+// Load all items
+function loadItems() {
+    fetch('./data/items_data.json')
+        .then(response => response.json())
+        .then(data => {
+            items = data.map(item => ({ ...item, category: 'Items' }));
+            all.push(...items);
+            if (all.length === items.length + blocks.length + mobs.length) {
+                sortAllData();
+                showCards(all);
+            }
+        })
+        .catch(error => console.error('Error loading items:', error));
+}
 
+// Load all blocks
+function loadBlocks() {
+    fetch('./data/blocks_data.json')
+        .then(response => response.json())
+        .then(data => {
+            blocks = data.map(block => ({ ...block, category: 'Blocks' }));
+            all.push(...blocks);
+            if (all.length === items.length + blocks.length + mobs.length) {
+                sortAllData();
+                showCards(all);
+            }
+        })
+        .catch(error => console.error('Error loading blocks:', error));
+}
 
-// This function adds cards the page to display the data in the array
-function showCards() {
+// Load all mobs
+function loadMobs() {
+    fetch('./data/mobs_data.json')
+        .then(response => response.json())
+        .then(data => {
+            mobs = data.map(mob => ({ ...mob, category: 'Mobs' }));
+            all.push(...mobs);
+            if (all.length === items.length + blocks.length + mobs.length) {
+                sortAllData();
+                showCards(all);
+            }
+        })
+        .catch(error => console.error('Error loading mobs:', error));
+}
+
+// Display cards
+function showCards(filteredItems = items) {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     const templateCard = document.querySelector(".card");
     
-    for (let i = 0; i < titles.length; i++) {
-        let title = titles[i];
-
-        // This part of the code doesn't scale very well! After you add your
-        // own data, you'll need to do something totally different here.
-        let imageURL = "";
-        if (i == 0) {
-            imageURL = FRESH_PRINCE_URL;
-        } else if (i == 1) {
-            imageURL = CURB_POSTER_URL;
-        } else if (i == 2) {
-            imageURL = EAST_LOS_HIGH_POSTER_URL;
-        }
+    for (let i = 0; i < filteredItems.length; i++) {
+        let item = filteredItems[i];
 
         const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, title, imageURL); // Edit title and image
+        editCardContent(nextCard, item); // Pass the item object to editCardContent
         cardContainer.appendChild(nextCard); // Add new card to the container
     }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+// Card content
+function editCardContent(card, data) {
     card.style.display = "block";
 
     const cardHeader = card.querySelector("h2");
-    cardHeader.textContent = newTitle;
+    cardHeader.textContent = data.name;
 
-    const cardImage = card.querySelector("img");
-    cardImage.src = newImageURL;
-    cardImage.alt = newTitle + " Poster";
+    const cardLink = card.querySelector(".item-link");
+    cardLink.href = data.link;
 
-    // You can use console.log to help you debug!
-    // View the output by right clicking on your website,
-    // select "Inspect", then click on the "Console" tab
-    console.log("new card:", newTitle, "- html: ", card);
+    const cardImage = card.querySelector(".item-image");
+    cardImage.src = `https://minecraft.wiki${data.image_url}`;
+    cardImage.alt = data.name;
+    cardImage.style.width = "auto";
+    cardImage.style.height = "auto";
+
+    const checkbox = card.querySelector(".favorite-checkbox");
+    checkbox.checked = isFavorite(data.name);
+    checkbox.addEventListener("change", (event) => {
+        if (event.target.checked) {
+            addToFavorites(data);
+        } else {
+            removeFromFavorites(data);
+        }
+    });
 }
 
-// This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
-
-function quoteAlert() {
-    console.log("Button Clicked!")
-    alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
+// Favorites Functions
+function isFavorite(itemName) {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    return favorites.some(fav => fav.name === itemName);
 }
 
-function removeLastCard() {
-    titles.pop(); // Remove last item in titles array
-    showCards(); // Call showCards again to refresh
+function addToFavorites(item) {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    favorites.push(item);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
+
+function removeFromFavorites(item) {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    favorites = favorites.filter(fav => fav.name !== item.name);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
+function showFavorites() {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    showCards(favorites);
+}
+
+// Load content
+document.addEventListener("DOMContentLoaded", () => {
+    loadItems();
+    loadBlocks();
+    loadMobs();
+});
+
+// Filtering content
+function filterByCategory(category) {
+    let filteredData;
+    if (category === "All") {
+        filteredData = all;
+    } else if (category === "Items") {
+        filteredData = items;
+    } else if (category === "Blocks") {
+        filteredData = blocks;
+    } else if (category === "Mobs") {
+        filteredData = mobs;
+    } else if (category === "Favorites") {
+        showFavorites();
+        return;
+    } else {
+        filteredData = all.filter(item => item.category === category);
+    }
+    filteredData.sort((a, b) => a.name.localeCompare(b.name));
+    showCards(filteredData);
+}
+
+
+// Search in content
+function searchItems() {
+    const searchQuery = document.getElementById("search-input").value.toLowerCase();
+    const filteredData = [...items, ...blocks, ...mobs].filter(data => data.name.toLowerCase().includes(searchQuery));
+    showCards(filteredData);
 }

@@ -1,39 +1,94 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles">
+    <title>Minecraft Item Explorer</title>
+    <meta name="description" content="A Catalog of Minecraft Recipes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <script type="text/javascript" src="scripts.js"></script>
 </head>
-
 <body>
     <header class="main-header">
-        <h1 class="title">LA TV Shows</h1>
+        <h1 class="title">Minecraft Item Explorer</h1>
     </header>
-    <div id="card-container">
-        
-    </div>
-    <div class="card" style="display: none;">
-        <div class="card-content">
-            <h2>TV Show Title</h2>
-            <img src="" alt="TV Show Poster">
-            <ul>
-                <li>Bullet Point 1</li>
-                <li>Bullet Point 2</li>
-                <li>Bullet Point 3</li>
-            </ul>
+    <div class="navbar">
+        <button onclick="filterByCategory('All');" id="soundButton">
+            All
+        </button>
+        <button onclick="filterByCategory('Favorites');" id="soundButton1">
+            Favorites
+        </button>
+        <button onclick="filterByCategory('Mobs');" id="soundButton2">
+            Mobs
+        </button>
+        <button onclick="filterByCategory('Block');" id="soundButton3">
+            Blocks
+        </button>
+        <button onclick="filterByCategory('Items');" id="soundButton4">
+            Items
+        </button>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search..." oninput="searchItems()">
         </div>
     </div>
-    <div class="footer">
-        <button onclick="quoteAlert();">
-            Get A Quote!
-        </button>
-        <button onclick="removeLastCard();">
-            Remove A Card!
-        </button>
+    
+    <!--Card template-->
+    <div id="card-container"></div>
+    <div class="card" style="display: none;">
+        <div class="card-content">
+            <h2 class="bold">Item Name</h2>
+            <a href="" target="_blank" class="item-link">
+                <img class="item-image" src="" alt="Item Image">
+            </a>
+            <input type="checkbox" class="favorite-checkbox">
+        </div>
     </div>
-</body>
+   
+    <!--Play audio when clicking on a tab-->
+    <audio id="clickSound" src="./assets/sounds/minecraft-click.mp3"></audio>
 
+    <script>
+        function playSound(event) {
+            var sound = document.getElementById("clickSound");
+            sound.play();
+            event.stopPropagation();
+        }
+
+        var soundButton = document.getElementById("soundButton");
+        var soundButton1 = document.getElementById("soundButton1");
+        var soundButton2 = document.getElementById("soundButton2");
+        var soundButton3 = document.getElementById("soundButton3");
+        var soundButton4 = document.getElementById("soundButton4");
+
+        soundButton.addEventListener('click', playSound);
+        soundButton1.addEventListener('click', playSound);
+        soundButton2.addEventListener('click', playSound);
+        soundButton3.addEventListener('click', playSound);
+        soundButton4.addEventListener('click', playSound);
+
+        soundButton.addEventListener('click', function() {
+            filterByCategory('All');
+        });
+
+        soundButton1.addEventListener('click', function() {
+            filterByCategory('Favorites');
+        });
+
+        soundButton2.addEventListener('click', function() {
+            filterByCategory('Mobs');
+        });
+
+        soundButton3.addEventListener('click', function() {
+            filterByCategory('Blocks');
+        });
+        soundButton4.addEventListener('click', function() {
+            filterByCategory('Items');
+        });
+    </script>
+    
+</body>
 </html>
