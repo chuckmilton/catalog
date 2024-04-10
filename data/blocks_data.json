@@ -4442,12 +4442,12 @@
     {
         "name": "Black Wall Banner",
         "link": "https://minecraft.wiki/w/Black_Wall_Banner",
-        "image_url": "/images/thumb/Black_Wall_Banner.png/48px-Black_Wall_Banner.png?31c9d.webp"
+        "image_url": "/images/thumb/Black_Wall_Banner.png/150px-Black_Wall_Banner.png?31c9d.webp"
     },
     {
         "name": "Blue Wall Banner",
         "link": "https://minecraft.wiki/w/Blue_Wall_Banner",
-        "image_url": "/images/thumb/Light_Blue_Wall_Banner.png/48px-Light_Blue_Wall_Banner.png?b89db.webp"
+        "image_url": "/images/thumb/Light_Blue_Wall_Banner.png/150px-Light_Blue_Wall_Banner.png?b89db.webp"
     },
     {
         "name": "Brain Coral Wall Fan",
@@ -4457,7 +4457,7 @@
     {
         "name": "Brown Wall Banner",
         "link": "https://minecraft.wiki/w/Brown_Wall_Banner",
-        "image_url": "/images/thumb/Brown_Wall_Banner.png/48px-Brown_Wall_Banner.png?76342.webp"
+        "image_url": "/images/thumb/Brown_Wall_Banner.png/150px-Brown_Wall_Banner.png?76342.webp"
     },
     {
         "name": "Bubble Coral Wall Fan",
@@ -4597,7 +4597,7 @@
     {
         "name": "Cyan Wall Banner",
         "link": "https://minecraft.wiki/w/Cyan_Wall_Banner",
-        "image_url": "/images/thumb/Cyan_Wall_Banner.png/48px-Cyan_Wall_Banner.png?d4c81.webp"
+        "image_url": "/images/thumb/Cyan_Wall_Banner.png/150px-Cyan_Wall_Banner.png?d4c81.webp"
     },
     {
         "name": "Dark Oak Wall Hanging Sign",
@@ -4667,12 +4667,12 @@
     {
         "name": "Gray Wall Banner",
         "link": "https://minecraft.wiki/w/Gray_Wall_Banner",
-        "image_url": "/images/thumb/Light_Gray_Wall_Banner.png/48px-Light_Gray_Wall_Banner.png?326bf.webp"
+        "image_url": "/images/thumb/Light_Gray_Wall_Banner.png/150px-Light_Gray_Wall_Banner.png?326bf.webp"
     },
     {
         "name": "Green Wall Banner",
         "link": "https://minecraft.wiki/w/Green_Wall_Banner",
-        "image_url": "/images/thumb/Green_Wall_Banner.png/48px-Green_Wall_Banner.png?1d680.webp"
+        "image_url": "/images/thumb/Green_Wall_Banner.png/150px-Green_Wall_Banner.png?1d680.webp"
     },
     {
         "name": "Horn Coral Wall Fan",
@@ -4717,22 +4717,22 @@
     {
         "name": "Light Blue Wall Banner",
         "link": "https://minecraft.wiki/w/Light_Blue_Wall_Banner",
-        "image_url": "/images/thumb/Light_Blue_Wall_Banner.png/48px-Light_Blue_Wall_Banner.png?b89db.webp"
+        "image_url": "/images/thumb/Light_Blue_Wall_Banner.png/150px-Light_Blue_Wall_Banner.png?b89db.webp"
     },
     {
         "name": "Light Gray Wall Banner",
         "link": "https://minecraft.wiki/w/Light_Gray_Wall_Banner",
-        "image_url": "/images/thumb/Light_Gray_Wall_Banner.png/48px-Light_Gray_Wall_Banner.png?326bf.webp"
+        "image_url": "/images/thumb/Light_Gray_Wall_Banner.png/150px-Light_Gray_Wall_Banner.png?326bf.webp"
     },
     {
         "name": "Lime Wall Banner",
         "link": "https://minecraft.wiki/w/Lime_Wall_Banner",
-        "image_url": "/images/thumb/Lime_Wall_Banner.png/48px-Lime_Wall_Banner.png?8eb4d.webp"
+        "image_url": "/images/thumb/Lime_Wall_Banner.png/150px-Lime_Wall_Banner.png?8eb4d.webp"
     },
     {
         "name": "Magenta Wall Banner",
         "link": "https://minecraft.wiki/w/Magenta_Wall_Banner",
-        "image_url": "/images/thumb/Magenta_Wall_Banner.png/48px-Magenta_Wall_Banner.png?bc76d.webp"
+        "image_url": "/images/thumb/Magenta_Wall_Banner.png/150px-Magenta_Wall_Banner.png?bc76d.webp"
     },
     {
         "name": "Mangrove Wall Hanging Sign",
@@ -4772,7 +4772,7 @@
     {
         "name": "Orange Wall Banner",
         "link": "https://minecraft.wiki/w/Orange_Wall_Banner",
-        "image_url": "/images/thumb/Orange_Wall_Banner.png/48px-Orange_Wall_Banner.png?8e7a0.webp"
+        "image_url": "/images/thumb/Orange_Wall_Banner.png/150px-Orange_Wall_Banner.png?8e7a0.webp"
     },
     {
         "name": "Piglin Wall Head",
@@ -4782,7 +4782,7 @@
     {
         "name": "Pink Wall Banner",
         "link": "https://minecraft.wiki/w/Pink_Wall_Banner",
-        "image_url": "/images/thumb/Pink_Wall_Banner.png/48px-Pink_Wall_Banner.png?cd8d1.webp"
+        "image_url": "/images/thumb/Pink_Wall_Banner.png/150px-Pink_Wall_Banner.png?cd8d1.webp"
     },
     {
         "name": "Piston Head",
@@ -4972,12 +4972,12 @@
     {
         "name": "Purple Wall Banner",
         "link": "https://minecraft.wiki/w/Purple_Wall_Banner",
-        "image_url": "/images/thumb/Purple_Wall_Banner.png/48px-Purple_Wall_Banner.png?6d7a0.webp"
+        "image_url": "/images/thumb/Purple_Wall_Banner.png/150px-Purple_Wall_Banner.png?6d7a0.webp"
     },
     {
         "name": "Red Wall Banner",
         "link": "https://minecraft.wiki/w/Red_Wall_Banner",
-        "image_url": "/images/thumb/Red_Wall_Banner.png/48px-Red_Wall_Banner.png?5995c.webp"
+        "image_url": "/images/thumb/Red_Wall_Banner.png/150px-Red_Wall_Banner.png?5995c.webp"
     },
     {
         "name": "Redstone Wall Torch",
@@ -5067,7 +5067,7 @@
     {
         "name": "White Wall Banner",
         "link": "https://minecraft.wiki/w/White_Wall_Banner",
-        "image_url": "/images/thumb/White_Wall_Banner.png/48px-White_Wall_Banner.png?5ec0d.webp"
+        "image_url": "/images/thumb/White_Wall_Banner.png/150px-White_Wall_Banner.png?5ec0d.webp"
     },
     {
         "name": "Wither Skeleton Wall Skull",
@@ -5077,7 +5077,7 @@
     {
         "name": "Yellow Wall Banner",
         "link": "https://minecraft.wiki/w/Yellow_Wall_Banner",
-        "image_url": "/images/thumb/Yellow_Wall_Banner.png/48px-Yellow_Wall_Banner.png?8b0f6.webp"
+        "image_url": "/images/thumb/Yellow_Wall_Banner.png/150px-Yellow_Wall_Banner.png?8b0f6.webp"
     },
     {
         "name": "Zombie Wall Head",
